@@ -16,21 +16,24 @@ Once you do that, in the notebook, just make an execute a cell with:
     %load_ext vimception
 
 Once you're satisfied that the above works, you can edit your profile's
-static/custom/custom.js to have this:
+`static/custom/custom.js` to have this:
 
 ```javascript
 function load_vimception() {
-    cell = IPython.notebook.insert_cell_at_index('code', 0);
-    IPython.notebook.select(0);
-    cell.set_text('%load_ext vimception\n%reload_ext vimception\n%vimception');
     if (!IPython.notebook.kernel) {
         $([IPython.events]).on('status_started.Kernel', function() {
+            cell = IPython.notebook.insert_cell_at_index('code', 0);
+            IPython.notebook.select(0);
+            cell.set_text('%load_ext vimception\n%reload_ext vimception\n%vimception');
             cell.execute();
-            IPython.notebook.delete_cell();
+            IPython.notebook.delete_cell(0);
         });
-    } else { 
+    } else {
+        cell = IPython.notebook.insert_cell_at_index('code', 0);
+        IPython.notebook.select(0);
+        cell.set_text('%load_ext vimception\n%reload_ext vimception\n%vimception');
         cell.execute();
-        IPython.notebook.delete_cell();
+        IPython.notebook.delete_cell(0);
     }
 }
 
