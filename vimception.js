@@ -104,7 +104,7 @@ function vim_up(event) {
     if (cell && cell.at_top() && cell.code_mirror.options.keyMap === 'vim') {
         console.log('inside the business logic k');
         event.preventDefault();
-        IPython.notebook.command_mode()
+        IPython.notebook.command_mode();
         IPython.notebook.select_prev();
         IPython.notebook.edit_mode();
         return false;
@@ -112,15 +112,15 @@ function vim_up(event) {
 }
 
 function vim_down(event) {
-            var cell = IPython.notebook.get_selected_cell();
-            if (cell && cell.at_bottom() && cell.code_mirror.options.keyMap === 'vim') {
-                event.preventDefault();
-                IPython.notebook.command_mode()
-                IPython.notebook.select_next();
-                IPython.notebook.edit_mode();
-                return false;
-            };
-        }
+    var cell = IPython.notebook.get_selected_cell();
+    if (cell && cell.at_bottom() && cell.code_mirror.options.keyMap === 'vim') {
+        event.preventDefault();
+        IPython.notebook.command_mode();
+        IPython.notebook.select_next();
+        IPython.notebook.edit_mode();
+        return false;
+    };
+}
 
 var m = '(vim) '
 var edit_shortcuts = {
