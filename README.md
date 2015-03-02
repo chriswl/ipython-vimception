@@ -41,8 +41,6 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
     $('#help_menu').prepend([
             '<li id="vimception" title="load up vimception cell">',
             '<a href="#" title="vimception" onClick="load_vimception()">vimception</a></li>',
-            '<li id="reflow" title="reflow markdown text">',
-            '<a href="#" title="vimception" onClick="reflow_markdown()">reflow text</a></li>',
             ].join("\n"));
 
 // uncomment next line to *always* start in vimception
@@ -77,6 +75,7 @@ TODO
 [ ] unalias v - and use nb-cccp if it's loaded 
 
 [ ] turn it into an nbextension (no python side)
+    - implementing this should close #4 as well
 
 [ ] Ctrl-n and Ctrl-p should work as local completion (like in vim)
 
@@ -88,3 +87,14 @@ TODO
 [ ] allow going between cells independent of which character you're on
 
 [ ] shift-J on the last line should join cell below
+
+[ ] standardize on a post-load function that vimception will call to allow for
+    further customization.
+
+[ ] look into the codemirror changes [here](https://github.com/codemirror/CodeMirror/issues/2915)
+
+Related Projects
+----------------
+
+[vim-ipython](https://github.com/ivanov/vim-ipython) - A two-way integration
+between Vim and IPython by the same author.

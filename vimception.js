@@ -43,25 +43,12 @@ $.getScript(p + "search/searchcursor.js"),
 // TODO: hook-up gq to perform a harwrap
 $.getScript(p + "wrap/hardwrap.js"),
 $.getScript(p + "selection/active-line.js"),
-//$.getScript("/static/components/codemirror/addon/
-// WARNING
 
 $.getScript(p + "display/fullscreen.js"),
 getCSS(p + "display/fullscreen.css"),
 getCSS(p + "dialog/dialog.css"),
 $.getScript(p + "dialog/dialog.js"),
 
-//$.getScript("/static/components/codemirror/addon/
-//$.getScript(p + "fold/indent-fold.js");
-//$.getScript(p + "fold/foldcode.js");
-//$.getScript(p + "fold/foldgutter.js");
-
-//getCSS(p + "fold/foldgutter.css");
-//themes
-//getCSS(p + "theme/tomorrow-night-eighties.css");
-//getCSS(p + "theme/twilight.css");
-//getCSS(p + "theme/vibrant-ink.css");
-//getCSS(p + "theme/xq-light.css"),
 
     $.Deferred(function( deferred ){
         $( deferred.resolve );
@@ -341,9 +328,6 @@ all_cm( function (cm) {
     IPython.TextCell.options_default.cm_config.extraKeys['Ctrl-F'] = function(cm){ cm.foldCode(cm.getCursor()); };
 
     // todo - do this for new cells as well
-    //cm.setOption('theme', "tomorrow-night-eighties");
-    //cm.setOption('theme', "twilight");
-    //cm.setOption('theme', "xq-light");
     // support this a :only? turn off full screen on blur
     cm.options.extraKeys["F11"] =  function(cm) { cm.setOption("fullScreen", !cm.getOption("fullScreen"))};
     cm.options.extraKeys["Ctrl-A"] =  function(cm) {
@@ -363,23 +347,6 @@ $("#ipython_notebook").append('<img id="vim" src="http://www.vim.org/images/vim_
     + 'position: absolute; left: 51px; top: -10px; height: initial;">')
 $("#vim").click( function () {$(this).hide()});
 */
-
-// -------- old -------------
-//$('#vim').animate({
-//          opacity: toggle,
-//          //left: "+=50",
-//          width: [ "toggle", "swing" ],
-//          height: [ "toggle", "swing" ],
-//}, 1000, 'linear', function() {
-//// Animation complete.
-//}
-//);
-
-//setTimeout(function() {
-//    img.find('img').remove('#vim');
-//    $("#ipython_notebook").append('<img id="vim" src="http://www.vim.org/images/vim_small.gif" style="'
-//    + 'position: absolute; left: 51px; top: 10px; height: initial;">');
-//}, 5000)
 
 // XXX: Autowrapping is kind of broken - you can write a line that will have
 // its last word (if it's 1 or 2 characters just go back and forth between the
